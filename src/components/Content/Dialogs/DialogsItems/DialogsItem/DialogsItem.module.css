@@ -1,0 +1,42 @@
+.dialogsItem {
+    padding: 3px;
+    margin: 10px;
+
+    display: grid;
+    grid-template-columns: 1fr 7fr 1fr;
+
+    text-decoration: none;
+    width: 150px;
+    /*border: 1px solid black;*/
+    /*border-radius: 20px;*/
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.name {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+    color: #323A39;
+    font-weight: 600;
+}
+
+/*.newMessagesBlock {*/
+/*    color: #323A39;*/
+/*    margin-top: auto;*/
+/*    margin-bottom: auto;*/
+/*    background: #27C0DB;*/
+
+/*    width: 25px;*/
+/*    height: 25px;*/
+/*    border-radius: 50%;*/
+/*}*/
+
+/*.newMessagesCount {*/
+/*    margin: auto;*/
+/*    text-align: center;*/
+/*}*/

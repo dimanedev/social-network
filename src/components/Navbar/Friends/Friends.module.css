@@ -1,0 +1,35 @@
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.item {
+    margin: 0 auto;
+}
+
+.name {
+    text-align: center;
+    white-space: pre-wrap;
+    color: white;
+    text-decoration: none;
+}
+
+.friendsBlock {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 2fr 3fr;
+    margin-top: 20px;
+}
+
+.header {
+    grid-column: 1 / 4;
+    text-decoration: none;
+    color: white;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.activeLink {
+    color: #1ee0e0;
+}

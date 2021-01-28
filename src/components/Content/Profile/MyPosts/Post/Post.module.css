@@ -1,0 +1,17 @@
+.post {
+  font-weight: bold;
+}
+
+.item img {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.name {
+  font-size: 20px;
+}
+
+.item p {
+  width: 800px;
+  margin: 0 auto;
+}

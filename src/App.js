@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header/Header';
+import Navbar from './components/Navbar/Navbar';
+import Content from './components/Content/Content';
+import {BrowserRouter} from 'react-router-dom';
+import Message from "./components/Content/Dialogs/Messages/Message/Message";
+import DialogsItem from "./components/Content/Dialogs/DialogsItems/DialogsItem/DialogsItem";
+import {updateNewPostText} from "./redux/state";
 
-function App() {
+const App = (props) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+        <div className="app-wrapper">
+          <Header/>
+          <Navbar state={props.state.sidebar}/>
+          <Content
+              state={props.state}
+              addPost={props.addPost}
+              addMessage={props.addMessage}
+              updateNewPostText={props.updateNewPostText}
+              updateNewMessageText={props.updateNewMessageText}/>
+        </div>
+      </BrowserRouter>
   );
 }
 
