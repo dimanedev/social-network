@@ -12,12 +12,12 @@ const MyPosts = (props) => {
   let textarea = createRef();
 
   let addPost = () => {
-    props.addPost();
+    props.dispatch({type: 'ADD-POST'});
   }
 
   let updateNewPostText = () => {
     let text = textarea.current.value;
-    props.updateNewPostText(text);
+    props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text});
   }
 
   return (
