@@ -1,6 +1,7 @@
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 import {createRef} from "react/cjs/react.production.min";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../../redux/state";
 
 
 const MyPosts = (props) => {
@@ -12,12 +13,12 @@ const MyPosts = (props) => {
   let textarea = createRef();
 
   let addPost = () => {
-    props.dispatch({type: 'ADD-POST'});
+    props.dispatch(addPostActionCreator());
   }
 
   let updateNewPostText = () => {
     let text = textarea.current.value;
-    props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text});
+    props.dispatch(updateNewPostTextActionCreator(text));
   }
 
   return (

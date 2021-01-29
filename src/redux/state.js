@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+
 let store = {
   _state: {
     profilePage: {
@@ -14,8 +19,16 @@ let store = {
       dialogsData: [
         {name: 'Lionya', id: 1, avatarAddress: 'https://whatsism.com/uploads/posts/2018-07/1530545833_il2zmvzx9py.jpg'},
         {name: 'Grisha', id: 2, avatarAddress: 'https://www.perunica.ru/uploads/posts/2019-03/1552932150_1.jpg'},
-        {name: 'Olya', id: 3, avatarAddress: 'https://i.pinimg.com/originals/db/43/46/db43463d7a017a65017e20aee86679c5.jpg'},
-        {name: 'Nastya', id: 4, avatarAddress: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkNClHcBngc-qOfx6OQ-rCm6L-xHp-t6R2QA&usqp=CAU'}
+        {
+          name: 'Olya',
+          id: 3,
+          avatarAddress: 'https://i.pinimg.com/originals/db/43/46/db43463d7a017a65017e20aee86679c5.jpg'
+        },
+        {
+          name: 'Nastya',
+          id: 4,
+          avatarAddress: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkNClHcBngc-qOfx6OQ-rCm6L-xHp-t6R2QA&usqp=CAU'
+        }
       ],
       messagesData: [
         {id: '0', message: 'Hello!'},
@@ -32,9 +45,17 @@ let store = {
 
     sidebar: {
       friendsData: [
-        {id: '1', name: 'Lionya', avatarAddress: 'https://whatsism.com/uploads/posts/2018-07/1530545833_il2zmvzx9py.jpg'},
+        {
+          id: '1',
+          name: 'Lionya',
+          avatarAddress: 'https://whatsism.com/uploads/posts/2018-07/1530545833_il2zmvzx9py.jpg'
+        },
         {id: '2', name: 'Grisha', avatarAddress: 'https://www.perunica.ru/uploads/posts/2019-03/1552932150_1.jpg'},
-        {id: '3', name: 'Olya', avatarAddress: 'https://i.pinimg.com/originals/db/43/46/db43463d7a017a65017e20aee86679c5.jpg'},
+        {
+          id: '3',
+          name: 'Olya',
+          avatarAddress: 'https://i.pinimg.com/originals/db/43/46/db43463d7a017a65017e20aee86679c5.jpg'
+        },
       ]
     }
   },
@@ -78,7 +99,7 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === 'ADD-POST') {
+    if (action.type === ADD_POST) {
       let post = {
         id: '5',
         message: this._state.profilePage.newPostText,
@@ -87,10 +108,10 @@ let store = {
       this._state.profilePage.myPostsData.unshift(post);
       this._state.profilePage.newPostText = '';
       this._callSubscriber(this._state);
-    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+    } else if (action.type === UPDATE_NEW_POST_TEXT) {
       this._state.profilePage.newPostText = action.newText;
       this._callSubscriber(this._state);
-    } else if(action.type === 'ADD-MESSAGE') {
+    } else if (action.type === ADD_MESSAGE) {
       let newMessage = {
         id: '5',
         message: this._state.dialogsPage.newMessageText
@@ -98,13 +119,28 @@ let store = {
       this._state.dialogsPage.messagesData.push(newMessage);
       this._state.dialogsPage.newMessageText = '';
       this._callSubscriber(this._state);
-    } else if(action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
       this._state.dialogsPage.newMessageText = action.newText;
       this._callSubscriber(this._state);
     }
 
   }
 }
+
+export const updateNewPostTextActionCreator = (newText) => ({
+  type: UPDATE_NEW_POST_TEXT,
+  newText: newText
+});
+export const addPostActionCreator = () => ({
+  type: ADD_POST
+});
+export const updateNewMessageActionCreator = (newText) => ({
+  type: UPDATE_NEW_MESSAGE_TEXT,
+  newText: newText
+});
+export const addMessageActionCreator = () => ({
+  type: ADD_MESSAGE
+});
 
 export default store;
 

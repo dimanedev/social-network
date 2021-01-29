@@ -2,6 +2,7 @@ import s from './Messages.module.css';
 import Message from "./Message/Message";
 import React from "react";
 import {createRef} from "react/cjs/react.production.min";
+import {addMessageActionCreator, updateNewMessageActionCreator} from "../../../../redux/state";
 
 const Messages = (props) => {
 
@@ -12,12 +13,12 @@ const Messages = (props) => {
   let newMessage = createRef();
 
   let addMessage = () => {
-    props.dispatch({type: 'ADD-MESSAGE'});
+    props.dispatch(addMessageActionCreator());
   }
 
   let updateNewMessageText = () => {
     let text = newMessage.current.value;
-    props.dispatch({type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text});
+    props.dispatch(updateNewMessageActionCreator(text));
   }
 
   return (
